@@ -14,10 +14,11 @@ export default function Main() {
         "July", "August", "September", "October", "November", "December"
     ];
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const month = monthNames[newdate.getMonth()];
+    const [month , setMonth] = useState(monthNames[newdate.getMonth()]);
 
     function leftArrow() {
         setnewDate(new Date(newdate.getFullYear(), newdate.getMonth() - 1, newdate.getDate()));
+        console.log(month)
     }
 
     function rightArrow() {
@@ -41,8 +42,9 @@ export default function Main() {
         setDateArray(arr);
     }, [newdate]);
 
-    function handleDateClick(nowDate) {
-        setSelectedDate(nowDate);
+    function handleDateClick(nowDate , nowmonth) {
+        setSelectedDate(parseInt(nowDate));
+        setMonth( parseInt(nowmonth) )
     }
 
     function buttonClicked(eve) {
@@ -52,7 +54,7 @@ export default function Main() {
     }
 
     function saveEvent() {
-        setEvents([...Events, { date: selectedDate, event: whichEvent }]);
+        setEvents([...Events, { date: selectedDate, ThisMonth : month , event: whichEvent }]);
         setshowInput( false )
         setwhichEvent("");
     }
@@ -60,6 +62,7 @@ export default function Main() {
     useEffect( ()=>{
         setshowClickOption(false);
         setshowInput( false )
+        setMonth( monthNames[new Date().getMonth()] )
     } , [selectedDate] )
 
     return (
@@ -85,10 +88,10 @@ export default function Main() {
                     {dateArray.map((v, index) => {
                         const [date, month , day] = v.split(":");
                         return (
-                            <span key={index} className={(date == todaysDate.getDate() && month == todaysDate.getMonth()) ? `allDate today ${ day == 0 ? "yes" : "no" }` : `allDate ${ day == 0 ? "yes" : "no" }`} id={(date == selectedDate) ? "color" : "normal"} onClick={() => handleDateClick(date)}>
+                            <span key={index} className={(date == todaysDate.getDate() && parseInt(month) == todaysDate.getMonth()) ? `allDate today ${ day == 0 ? "yes" : "no" }` : `allDate ${ day == 0 ? "yes" : "no" }`} id={(date == selectedDate) ? "color" : "normal"} onClick={() => handleDateClick(date , month)}>
                                 {date}
-                                {console.log(date,day,month)}
-                                {Events.filter(event => event.date == date).map((event, i) => (
+                                {/* {console.log(date,day,month)} */}
+                                {Events.filter(event => event.date == date && parseInt(month) === todaysDate.getMonth()).map((e,i) => (
                                     <span key={i} style={{ color: "chocolate" }}>.</span>
                                 ))}
                             </span>
@@ -103,13 +106,14 @@ export default function Main() {
                 </div>
                 <div className="events">
                 <div className='availableEvents'>
-                        {Events.filter(event => event.date == selectedDate).length > 0 ? (
-                            Events.filter(event => event.date == selectedDate).map((v, i) => (
-                                <span key={i}>{v.event} on {v.date}</span>
-                            ))
-                        ) : (
-                            <span>No Available Events</span>
-                        )}
+                {Events.filter(event => event.date === selectedDate && event.ThisMonth === monthNames[newdate.getMonth()]).length > 0 ? (
+                    Events.filter(event => event.date === selectedDate && event.ThisMonth === monthNames[newdate.getMonth()]).map((v, i) => (
+                        <span key={i}>{v.event} on {v.date}</span>
+                    ))
+                ) : (
+                    <span>No Available Events</span>
+                )}
+
                     </div>
                         <div className='Options' style={{ display: showClickOption ? "flex" : "none" }}>
                             <button onClick={() => buttonClicked("Birthday")} className='options Birthday'>Birthday</button>
