@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body , #root{
+    background: #212121;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    font-family: "SUSE", system-ui;
+}
+main{
+    height: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    font-size: large;
+}
+.fields {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 50%;
+}
+footer{
+    text-align: left;
+}
+.forgotPass {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 25%;
+}
+header {
+    font-size: 2rem;
+}
+button {
+    padding: 0.7em;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    background: #2196F3;
+    color: white;
+    font-family: "SUSE", system-ui;
+}
+input{
+    font-family: "SUSE", system-ui;
+    padding: 0.7em;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+
+i.fa-solid.fa-eye-slash {
+    position: relative;
+    right: 1.5em;
+    color: black;
+    width: 0;
+}
+i.fa-solid.fa-eye {
+    position: relative;
+    right: 1.5em;
+    color: black;
+    width: 0;
+}
