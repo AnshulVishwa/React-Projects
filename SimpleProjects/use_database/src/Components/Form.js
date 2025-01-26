@@ -1,23 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Submit from './SubmitFunc.js'
 
 function Form() {
+    const [ name , setName ] = useState(null)
+    const [ email , setEmail ] = useState(null)
+    const [ password , setPassword ] = useState(null)
   return (
     <form>
         <div className='name'>
             <label>Enter your name </label>
-            <input type='text' name='username' />
+            <input type='text' name='username' value={name} onChange={(e) => {setName(e.target.value)} } />
         </div>
         <div className='email'>
             <label>Enter your email </label>
-            <input type='text' name='email' />
+            <input type='text' name='email' value={email} onChange={(e) => {setEmail(e.target.value)} } />
         </div>
         <div className='password'>
             <label>Create password </label>
-            <input type='text' name='password' />
+            <input type='text' name='password' value={password} onChange={(e) => {setPassword(e.target.value)} } />
         </div>
-        <button onClick={ (e) => {
-            e.preventDefault()
-        } }>Submit</button>
+        <Submit username={name} email={email} password={password} />
     </form>
   )
 }
