@@ -9,7 +9,17 @@ body , #root{
   background-color: #000;
   color: white;
   overflow: scroll;
+  animation: hideOverflow 4s linear 1;
   scrollbar-width: 0;
+}
+
+@keyframes hideOverflow {
+  0%{
+    overflow: hidden;
+  }
+  100%{
+    overflow-y: scroll;
+  }
 }
 
 #root::-webkit-scrollbar{

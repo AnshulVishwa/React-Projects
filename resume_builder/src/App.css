@@ -1,10 +1,96 @@
 img.upperSVG {
     position: absolute;
     left: 10%;
+    /* animation: animateImage 5s ease-in-out  infinite  ; */
+    transition: 5s;
 }
+
+@keyframes animateImage {
+    0%{transform: translate3d(0 ,0 ,0);}
+    50%{transform: translate3d(5em , 1em , 40em) rotate(2deg);}
+    100%{transform: translate3d(0 ,0 ,0);}
+}
+
 .section1Top {
     height: 100vh;
     width: 100vw;
     position: relative;
     z-index: 5;
+}
+.contentMiddle.flex {
+    height: 90%;
+    flex-direction: column;
+}
+.contentDIVBOX {
+    height: 30%;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-shadow: 4px 4px 4px rgb(0 0 0 / 25%);
+    margin-bottom: 10%;
+    position: relative;
+}
+
+.spanHead1 {
+    font-size: 2em;
+    font-weight: 500;
+    margin-right: 40%;
+}
+.spanHead2 {
+    font-size: xxx-large;
+    font-weight: 700;
+}
+.spanHead3.flex {
+    flex-direction: column;
+    align-items: end;
+}
+.line {
+    width: 75%;
+    background: white;
+    height: 1px;
+    animation: lineAnimation 25s ease-in-out infinite ;
+}
+
+@keyframes lineAnimation {
+    0%{ width: 10%; }
+    25%{ width: 50%; }
+    50%{ width: 0%; }
+    75%{ width: 75%; }
+    100%{ width: 10%; }
+}
+
+button.btnGetStarted {
+    outline: none;
+    border: none;
+    background: #fff;
+    padding: 0.5em 1.5em;
+    border-radius: 5em;
+    box-shadow: 4px 4px 4px rgb(255 255 255 / 25%);
+    font-size: medium;
+    text-shadow: 2px 2px 4px rgb(0 0 0 / 25%);
+    width: 10em;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+i.fa-solid.fa-chevron-right{
+    font-size: small;
+}
+
+ button.btnGetStarted:hover > i.fa-solid.fa-chevron-right{
+    animation: animateGetStarted 2s ease-in-out infinite ;
+}
+
+ button.btnGetStarted:hover{
+    box-shadow: 0 0 8px rgb(255, 255, 255);
+    transition: 0.5s;
+ }
+
+@keyframes animateGetStarted {
+    0%{ transform: translateX(0px); }
+    25%{ transform: translateX(5px); }
+    50%{ transform: translateX(2px); }
+    75%{ transform: translateX(5px); }
+    100%{ transform: translateX(0px); }
 }
