@@ -6,7 +6,7 @@
 
 body , #root{
   width: 100vw;
-  background-color: #000;
+  background-color: #030029;
   color: white;
   overflow: scroll;
   animation: hideOverflow 4s linear 1;

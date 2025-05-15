@@ -35,22 +35,42 @@
     transition: 0.5s;
 }
 
+.leftAboutUs.flex {
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 80%;
+}
+
 .bottomContentAboutUs.flex {
     height: 70%;
 }
 
-.manBehind{
+.manBehind {
     position: absolute;
     z-index: 1;
+    perspective-origin: center;
+    transform: translate(10px, 10px);
+    transition: 1s;
 }
 .manAboutUs {
     position: relative;
     z-index: 2;
 }
 .textAboutUs {
-    width: 45%;
+    width: 100%;
 }
 .text {
     line-height: 3em;
     letter-spacing: 0.4em;
+    transition: 1s;
+}
+
+.reviewsAboutUs{
+    flex-direction: column;
+}
+
+.optionsBottomAboutUs{
+    justify-content: space-evenly;
+    width: 100%;
 }

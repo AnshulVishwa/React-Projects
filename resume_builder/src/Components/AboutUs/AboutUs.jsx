@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./AboutUs.css"
 
 function AboutUs() {
+  useEffect( () => {
+    setInterval(() => {
+      document.querySelector(".manBehind").style.transform = `translate3d(${Math.random()*10}em,${Math.random()*10}em,${Math.random()*10}em) rotate(${Math.random()*10}deg)`
+    }, 4000);
+  } , [] )
   return (
     <div id='aboutUs' className="aboutUsMainContentDiv">
         <h1 className='aboutUsHeading flex'>About us</h1>
@@ -17,8 +22,24 @@ function AboutUs() {
             <img className='manBehind' src='/man-behind.svg'></img>
             <img className='manAboutUs' src='/man.svg'></img>
           </div>
-          <div className="textAboutUs">
-            <div className="text">We are a passionate team dedicated to creating meaningful digital experiences. With a focus on creativity, quality, and innovation, we turn ideas into impactful solutions that inspire and engage.</div>
+          <div className="leftAboutUs flex">
+            <div className="textAboutUs">
+              <div className="text">We are a passionate team dedicated to creating meaningful digital experiences. With a focus on creativity, quality, and innovation, we turn ideas into impactful solutions that inspire and engage.</div>
+            </div>
+            <div className="optionsBottomAboutUs flex">
+              <div className="reviewsAboutUs flex">
+                <div className="numberAboutUs">25 K</div>
+                <div className="textNumberAboutUs">Good Reviews</div>
+              </div>
+              <div className="reviewsAboutUs flex">
+                <div className="numberAboutUs">4</div>
+                <div className="textNumberAboutUs">Templates</div>
+              </div>
+              <div className="reviewsAboutUs flex">
+                <div className="numberAboutUs">79%</div>
+                <div className="textNumberAboutUs">Selection Rate</div>
+              </div>
+            </div>
           </div>
         </div>
     </div>
