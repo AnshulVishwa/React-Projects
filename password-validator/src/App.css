@@ -3,8 +3,6 @@
     padding: 0;
 }
 body , #root{
-    background: #212121;
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,6 +10,12 @@ body , #root{
     width: 100vw;
     flex-direction: column;
     font-family: "SUSE", system-ui;
+    overflow: hidden;
+}
+img {
+    width: 100vw;
+    position: absolute;
+    z-index: -1;
 }
 main{
     height: 50%;

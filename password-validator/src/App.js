@@ -16,6 +16,7 @@ function App() {
 
   return (
     <>
+    <img src="/bg.jpg"></img>
       <header>Login page</header>
       <main>
         <div className="fields">
