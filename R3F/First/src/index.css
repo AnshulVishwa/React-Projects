@@ -1,0 +1,9 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+#root , body {
+  height: 200vh;
+  width: 100vw;
+  background-color: #212121;
+}
