@@ -14,7 +14,7 @@ function App() {
 
   async function handleSubmitTest() {
     try {
-      await setDoc( doc( db , "myCollections" , "helloFirebase" ),
+      await setDoc( doc( db , "myCollections" ),
       {
         id : questionIndex,
         question : Questions[questionIndex].question,
