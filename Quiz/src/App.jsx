@@ -3,7 +3,7 @@ import './App.css'
 import { Instructions } from './Instructions'
 import { Questions } from './Questions'
 import {db} from "./firebase"
-import { doc, setDoc } from 'firebase/firestore'
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore'
 
 function App() {
   const [instructionIndex, setInstructionIndex] = useState(0)
@@ -14,7 +14,7 @@ function App() {
 
   async function handleSubmitTest() {
     try {
-      await setDoc( doc( db , "myCollections" ),
+      await addDoc( collection( db , "Answers" ),
       {
         id : questionIndex,
         question : Questions[questionIndex].question,
