@@ -4,7 +4,7 @@ import C1 from './Templates/c1'
 
 function App() {
   const details = {
-    name : "Mr. Arpit Vishwakarma",
+    name : "Mrs. Anjali Raguwanshi",
     eventName : "Hackathon",
     pos : "Certificate of Completion",
     reason : "For Beautifully desingning a website",
